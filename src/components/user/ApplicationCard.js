@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { GetScheme } from "../helper/scheme";
-const state = ["panding", "done", "rejected"];
+const state = ["pending", "done", "rejected"];
 const colour = [
   "badge badge-pill badge-warning",
   "badge badge-pill badge-success",

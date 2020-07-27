@@ -70,7 +70,6 @@ export const UpdateSchemes = (token, id, scheme) => {
 };
 
 export const ReviewList = (token, id) => {
-  console.log({ token, id });
   return fetch(`${API}/apply/review/${id}`, {
     method: "GET",
     headers: {
@@ -78,6 +77,52 @@ export const ReviewList = (token, id) => {
       "Content-type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const GetSingleApplication = (token, applicationId) => {
+  return fetch(`${API}/apply/reviewone/${applicationId}`, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const GetUserById = (token, id) => {
+  return fetch(`${API}/users/${id}`, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const ChangeApplicationState = (token, id, state) => {
+  return fetch(`${API}/apply/reviewone/${id}`, {
+    method: "PUT",
+    headers: {
+      accept: "application/json",
+      "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(state),
   })
     .then((response) => {
       return response.json();

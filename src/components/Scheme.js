@@ -82,7 +82,7 @@ export default function Scheme({ match }) {
           <li className="list-group-item">
             Eligibility Gender- {genders[gender % genders.length]}
           </li>
-          <li className="list-group-item">Eligibility URL- {url}</li>
+          <li className="list-group-item">URL- {url}</li>
         </ul>
       </div>
     );
