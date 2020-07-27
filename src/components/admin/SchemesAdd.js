@@ -86,6 +86,7 @@ const SchemesAdd = () => {
         <h2 className="my-4">Add Scheme here</h2>
         <form>
           <div className="form-group">
+            <label>Name</label>
             <input
               onChange={handleChange("name")}
               name="photo"
@@ -94,34 +95,59 @@ const SchemesAdd = () => {
               value={name}
             />
           </div>
-          <div className="form-group">
-            <textarea
-              onChange={handleChange("description")}
-              name="photo"
-              className="form-control"
-              placeholder="Description"
-              value={description}
-            />
+
+          <div className="row">
+            <div className="col">
+              <div className="form-group">
+                <label>Caste</label>
+                <select
+                  class="form-control"
+                  value={eligibilityCaste}
+                  onChange={handleChange("eligibilityCaste")}
+                >
+                  <option value="0">Gen</option>
+                  <option value="1">OBC</option>
+                  <option value="2">ST/SC</option>
+                  <option value="3">ST/SC and OBC</option>
+                  <option value="4">All castes</option>
+                </select>
+              </div>
+            </div>
+            <div className="col">
+              <div className="form-group">
+                <label> Gender(s)</label>
+                <select
+                  value={gender}
+                  onChange={handleChange("gender")}
+                  class="form-control"
+                >
+                  <option value="0">Male</option>
+                  <option value="1">Female</option>
+                  <option value="2">Trans</option>
+                  <option value="3">All</option>
+                  <option value="4">Others</option>
+                </select>
+              </div>
+            </div>
+            <div className="col">
+              <div className="form-group">
+                <label>Type</label>
+                <select
+                  class="form-control"
+                  value={type}
+                  onChange={handleChange("type")}
+                >
+                  <option value="0">Education</option>
+                  <option value="1">Agriculture</option>
+                  <option value="2">Employment</option>
+                  <option value="3">Health & Family Welfare</option>
+                  <option value="4">Housing</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div className="form-group">
-            <input
-              onChange={handleChange("eligibilityCaste")}
-              type="number"
-              className="form-control"
-              placeholder="Eligibility Caste"
-              value={eligibilityCaste}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              onChange={handleChange("type")}
-              type="number"
-              className="form-control"
-              placeholder="Scheme Type"
-              value={type}
-            />
-          </div>
-          <div className="form-group">
+            <label>Eligibility Age Lower Bound</label>
             <input
               onChange={handleChange("eligibilityAgeLowerBound")}
               type="number"
@@ -130,7 +156,9 @@ const SchemesAdd = () => {
               value={eligibilityAgeLowerBound}
             />
           </div>
+
           <div className="form-group">
+            <label>Eligibility Age Upper Bound</label>
             <input
               onChange={handleChange("eligibilityAgeUpperBound")}
               type="number"
@@ -139,31 +167,41 @@ const SchemesAdd = () => {
               value={eligibilityAgeUpperBound}
             />
           </div>
-          <div className="form-group">
-            <input
-              onChange={handleChange("eligibilityIncome")}
-              type="number"
-              className="form-control"
-              placeholder="Eligibility Income"
-              value={eligibilityIncome}
-            />
+          <div className="row">
+            <div className="col">
+              <div className="form-group">
+                <label>Eligibility Income</label>
+                <input
+                  onChange={handleChange("eligibilityIncome")}
+                  type="number"
+                  className="form-control"
+                  placeholder="Eligibility Income"
+                  value={eligibilityIncome}
+                />
+              </div>
+            </div>
+            <div className="col">
+              <div className="form-group">
+                <label>URL</label>
+                <input
+                  onChange={handleChange("url")}
+                  type="url"
+                  className="form-control"
+                  placeholder="URL(if any)"
+                  value={url}
+                />
+              </div>
+            </div>
           </div>
+
           <div className="form-group">
-            <input
-              onChange={handleChange("gender")}
-              type="number"
+            <label>Description</label>
+            <textarea
+              onChange={handleChange("description")}
+              name="photo"
               className="form-control"
-              placeholder="Gender"
-              value={gender}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              onChange={handleChange("url")}
-              type="url"
-              className="form-control"
-              placeholder="URL(if any)"
-              value={url}
+              placeholder="Description"
+              value={description}
             />
           </div>
 
@@ -172,7 +210,7 @@ const SchemesAdd = () => {
             onClick={onSubmit}
             className="btn btn-outline-success mb-3"
           >
-            Create Scheme
+            Add Scheme
           </button>
         </form>
       </div>

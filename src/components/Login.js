@@ -19,7 +19,6 @@ export default function Login() {
     setValues({ ...values, error: false, loading: true });
     signin({ username, password })
       .then((data) => {
-        console.log(data);
         if (data.error) {
           setValues({ ...values, error: data.error, loading: false });
         } else {
@@ -71,7 +70,7 @@ export default function Login() {
               onChange={handleChange("password")}
             />
           </div>
-          <button onClick={submit} class="btn btn-primary">
+          <button onClick={submit} class="btn btn-outline-success">
             Login
           </button>
         </form>

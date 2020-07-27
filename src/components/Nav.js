@@ -5,7 +5,7 @@ import { Fragment } from "react";
 
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: "#05b572" };
+    return { color: "#0b8457" };
   } else {
     return { color: "black" };
   }
@@ -17,7 +17,7 @@ const Nav = ({ history }) => {
       <ul className="nav nav-tabs bg-light">
         <li className="nav-item">
           <Link style={currentTab(history, "/")} className="nav-link" to="/">
-            Scheme Home
+            Home
           </Link>
         </li>
 
@@ -25,11 +25,11 @@ const Nav = ({ history }) => {
         !isAdmin() && ( //&& isAuthenticated().user.role === 0
             <li className="nav-item">
               <Link
-                style={currentTab(history, "/user/dashboard")}
+                style={currentTab(history, "/apply")}
                 className="nav-link"
-                to="/user/dashboard"
+                to="/apply"
               >
-                Dashboard
+                Apply
               </Link>
             </li>
           )}
@@ -42,7 +42,7 @@ const Nav = ({ history }) => {
                 className="nav-link"
                 to="/admin/dashboard"
               >
-                A dashboard
+                Dashboard
               </Link>
             </li>
           )}
@@ -64,11 +64,21 @@ const Nav = ({ history }) => {
                 className="nav-link"
                 to="/login"
               >
-                signin
+                Signin
               </Link>
             </li>
           </Fragment>
         )}
+
+        <li className="nav-item">
+          <Link
+            style={currentTab(history, "/about")}
+            className="nav-link"
+            to="/about"
+          >
+            About
+          </Link>
+        </li>
 
         {isAuthenticated() && (
           <li className="nav-item">

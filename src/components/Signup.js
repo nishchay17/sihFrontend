@@ -36,6 +36,7 @@ const Signup = () => {
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
+    console.log(values);
   };
 
   const onSubmit = (event) => {
@@ -65,7 +66,7 @@ const Signup = () => {
             username: "",
             gender: "",
             lastName: "",
-            state: "",
+            state: "0",
             caste: "",
             age: "",
             aadhaarNumber: "",
@@ -80,76 +81,99 @@ const Signup = () => {
 
   const signUpForm = () => {
     return (
-      <div className="container my-4 row">
-        <div className="col-md-6 offset-md-5 col-12">
+      <div className="container my-4 mx-auto row">
+        <div className="col-md-6 offset-md-3 col-12">
           <h4 className="display-4">Registration Form</h4>
-          <p className="lead">
-            Demo Mode (change Aadhaar Number to test and username)
-          </p>
+          <p className="lead">Demo Mode (change Aadhaar Number and username)</p>
           <form>
-            <div className="form-group">
-              <label>Name</label>
-              <input
-                className="form-control"
-                onChange={handleChange("name")}
-                type="text"
-                value={name}
-              />
+            <div className="row">
+              <div className="col">
+                <div className="form-group">
+                  <label>First Name</label>
+                  <input
+                    className="form-control border"
+                    onChange={handleChange("name")}
+                    type="text"
+                    value={name}
+                  />
+                </div>
+              </div>
+
+              <div className="col">
+                <div className="form-group">
+                  <label>Last Name</label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    onChange={handleChange("lastName")}
+                    value={lastName}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="form-group">
-              <label>Last Name</label>
-              <input
-                className="form-control"
-                onChange={handleChange("lastName")}
-                type="text"
-                value={lastName}
-              />
-            </div>
-            <div className="form-group">
-              <label>State</label>
-              <input
-                className="form-control"
-                onChange={handleChange("state")}
-                type="number"
-                value={state}
-              />
-            </div>
-            <div className="form-group">
-              <label>Caste</label>
-              <input
-                className="form-control"
-                onChange={handleChange("caste")}
-                type="number"
-                value={caste}
-              />
-            </div>
+
             <div className="form-group">
               <label>Moblie Number</label>
               <input
                 className="form-control"
                 onChange={handleChange("moblieNumber")}
-                type="number"
                 value={moblieNumber}
+                type="tel"
               />
+            </div>
+
+            <div className="row">
+              <div className="col">
+                <div className="form-group">
+                  <label>Age</label>
+                  <input
+                    className="form-control"
+                    onChange={handleChange("age")}
+                    type="number"
+                    value={age}
+                  />
+                </div>
+              </div>
+              <div className="col">
+                <div className="form-group">
+                  <label> Gender</label>
+                  <select
+                    class="form-control"
+                    value={gender}
+                    onChange={handleChange("gender")}
+                  >
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                    <option value="2">Trans</option>
+                    <option value="4">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col">
+                <div className="form-group">
+                  <label>Caste</label>
+                  <select
+                    class="form-control"
+                    value={caste}
+                    onChange={handleChange("caste")}
+                  >
+                    <option value="0">Gen</option>
+                    <option value="1">OBC</option>
+                    <option value="2">ST/SC</option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div className="form-group">
               <label>Aadhaar Number</label>
               <input
                 className="form-control"
                 onChange={handleChange("aadhaarNumber")}
-                type="number"
                 value={aadhaarNumber}
-              />
-            </div>
-            <div className="form-group">
-              <label>Age</label>
-              <input
-                className="form-control"
-                onChange={handleChange("age")}
                 type="number"
-                value={age}
               />
             </div>
+
             <div className="form-group">
               <label>Income</label>
               <input
@@ -159,34 +183,34 @@ const Signup = () => {
                 value={income}
               />
             </div>
-            <div className="form-group">
-              <label>Username</label>
-              <input
-                className="form-control"
-                onChange={handleChange("username")}
-                type="text"
-                value={username}
-              />
+            <div className="row">
+              <div className="col">
+                <div className="form-group">
+                  <label>Username</label>
+                  <input
+                    className="form-control"
+                    onChange={handleChange("username")}
+                    type="text"
+                    value={username}
+                  />
+                </div>
+              </div>
+              <div className="col">
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    className="form-control"
+                    onChange={handleChange("password")}
+                    type="password"
+                    value={password}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="form-group">
-              <label>Gender</label>
-              <input
-                className="form-control"
-                onChange={handleChange("gender")}
-                type="number"
-                value={gender}
-              />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input
-                className="form-control"
-                onChange={handleChange("password")}
-                type="password"
-                value={password}
-              />
-            </div>
-            <button onClick={onSubmit} className="btn btn-success btn-block">
+            <button
+              onClick={onSubmit}
+              className="btn btn-outline-success btn-block"
+            >
               Register
             </button>
           </form>

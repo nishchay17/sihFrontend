@@ -17,6 +17,11 @@ export default function AdminDashboard() {
               View / Manage Schemes
             </Link>
           </li>
+          <li className="list-group-item">
+            <Link to="/review" className="nav-link text-success">
+              Review Application
+            </Link>
+          </li>
         </ul>
       </div>
     );

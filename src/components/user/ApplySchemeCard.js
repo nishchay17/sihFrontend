@@ -9,7 +9,7 @@ const type = [
   "Housing",
 ];
 
-export default function SchemeCard(props) {
+export default function ApplySchemeCard(props) {
   return (
     <div className="card col-md-4 m-1 col-12">
       <div className="card-body">
@@ -20,7 +20,7 @@ export default function SchemeCard(props) {
         <p className="card-text">{props.data.description}</p>
         <Link
           className="btn btn-outline-success"
-          to={`/scheme/${props.data._id}`}
+          to={`/apply/${props.data._id}`}
         >
           <span className="">Learn more</span>
         </Link>

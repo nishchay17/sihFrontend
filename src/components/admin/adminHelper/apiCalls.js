@@ -68,3 +68,19 @@ export const UpdateSchemes = (token, id, scheme) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const ReviewList = (token, id) => {
+  console.log({ token, id });
+  return fetch(`${API}/apply/review/${id}`, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      "Content-type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

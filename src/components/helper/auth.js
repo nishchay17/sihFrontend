@@ -1,7 +1,6 @@
 const API = "https://sihbackend2020.herokuapp.com";
 
 export const signin = (user) => {
-  console.log(JSON.stringify(user));
   return fetch(`${API}/users/login`, {
     method: "POST",
     headers: {
@@ -39,11 +38,23 @@ export const isAdmin = () => {
   }
 };
 
+export const getId = () => {
+  if (typeof window == "undefined") {
+    return false;
+  }
+  if (localStorage.getItem("id2")) {
+    return JSON.parse(localStorage.getItem("id2"));
+  } else {
+    return false;
+  }
+};
+
 export const authenticate = (data, next) => {
   if (typeof window !== "undefined") {
     const jwt = data.token;
     if (data.authorId)
       localStorage.setItem("id", JSON.stringify(data.authorId));
+    else localStorage.setItem("id2", JSON.stringify(data.id2));
     localStorage.setItem("jwt", JSON.stringify(jwt));
     next();
   }
@@ -54,6 +65,9 @@ export const signout = (next) => {
     localStorage.removeItem("jwt");
     if (localStorage.getItem("id")) {
       localStorage.removeItem("id");
+    }
+    if (localStorage.getItem("id2")) {
+      localStorage.removeItem("id2");
     }
     next();
     return fetch(`${API}/users/logout`, {

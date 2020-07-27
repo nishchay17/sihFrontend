@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { GetScheme } from "./helper/scheme";
-import { isAuthenticated } from "./helper/auth";
+import { GetScheme } from "../helper/scheme";
+import { isAuthenticated } from "../helper/auth";
+import { ApplyIt } from "./helper/apiCalls";
 
+const token = isAuthenticated();
 const types = [
   "Education",
   "Agriculture",
@@ -13,6 +15,8 @@ const genders = ["Male", "Female", "Trans", "All Gender", "other"];
 const castes = ["Gen", "OBC", "ST/SC", "ST/SC and OBC", "All castes"];
 
 export default function Scheme({ match }) {
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
   const [scheme, setScheme] = useState({
     name: "",
     type: "",
@@ -59,6 +63,18 @@ export default function Scheme({ match }) {
     });
   }, []);
 
+  const onclick = () => {
+    ApplyIt(token, match.params.id)
+      .then((res) => {
+        setSuccess(true);
+        setError(false);
+      })
+      .catch((err) => {
+        setError(true);
+        setSuccess(false);
+      });
+  };
+
   const card = () => {
     return (
       <div className="card text-center m-4">
@@ -84,12 +100,43 @@ export default function Scheme({ match }) {
           </li>
           <li className="list-group-item">Eligibility URL- {url}</li>
         </ul>
+        {/* <div className=""> */}
+        <button
+          className="btn btn-success"
+          style={{ display: isAuthenticated() ? "" : "none" }}
+          onClick={onclick}
+        >
+          Apply Now
+        </button>
+        {/* </div> */}
+      </div>
+    );
+  };
+  const successMessage = () => {
+    return (
+      <div
+        className="alert alert-success mt-3"
+        style={{ display: success ? "" : "none" }}
+      >
+        Appiled!
+      </div>
+    );
+  };
+  const errorMessage = () => {
+    return (
+      <div
+        className="alert alert-danger mt-3"
+        style={{ display: error ? "" : "none" }}
+      >
+        Error, try again.
       </div>
     );
   };
 
   return (
     <div className="container">
+      {errorMessage()}
+      {successMessage()}
       <h1 className="m-4">Scheme Details</h1>
       {card()}
     </div>
