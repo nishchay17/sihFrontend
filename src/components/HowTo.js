@@ -2,7 +2,10 @@ import React from "react";
 
 export default function HowTo() {
   return (
-    <div className="container my-5">
+    <div
+      className="container-fluid py-5"
+      style={{ backgroundColor: "#55efc4" }}
+    >
       <div className="col-12 col-md-10 offset-md-1">
         <h1>How to use</h1>
         <p>

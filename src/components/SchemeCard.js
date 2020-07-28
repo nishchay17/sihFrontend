@@ -11,7 +11,10 @@ const type = [
 
 export default function SchemeCard(props) {
   return (
-    <div className="card col-md-4 m-1 col-12">
+    <div
+      className="card col-md-4 m-1 col-12"
+      style={{ backgroundColor: "#bef7f7" }}
+    >
       <div className="card-body">
         <h5 className="card-title">{props.data.name}</h5>
         <h6 className="card-subtitle mb-2 text-muted">

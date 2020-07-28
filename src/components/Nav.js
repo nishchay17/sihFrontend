@@ -5,7 +5,7 @@ import { Fragment } from "react";
 
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: "#0b8457" };
+    return { color: "white" };
   } else {
     return { color: "black" };
   }
@@ -13,8 +13,8 @@ const currentTab = (history, path) => {
 
 const Nav = ({ history }) => {
   return (
-    <div>
-      <ul className="nav nav-tabs bg-light">
+    <div style={{ backgroundColor: "#2ecc71" }}>
+      <ul className="nav nav-tabs">
         <li className="nav-item">
           <Link style={currentTab(history, "/")} className="nav-link" to="/">
             Home
