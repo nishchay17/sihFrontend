@@ -54,15 +54,15 @@ const SchemesAdd = () => {
         setScheme({
           ...scheme,
           name: "",
-          type: "",
+          type: "0",
           eligibilityIncome: "",
-          eligibilityCaste: "",
+          eligibilityCaste: "0",
           state: "0",
           eligibilityAgeUpperBound: "",
           eligibilityAgeLowerBound: "",
           description: "",
           url: "",
-          gender: "",
+          gender: "0",
           createdScheme: data.name,
         });
       }
