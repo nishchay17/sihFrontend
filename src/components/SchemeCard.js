@@ -12,7 +12,7 @@ const type = [
 export default function SchemeCard(props) {
   return (
     <div
-      className="card col-md-4 m-1 col-12"
+      className="card col-md-5 m-1 mt-md-5 col-12"
       style={{ backgroundColor: "#bef7f7" }}
     >
       <div className="card-body">
@@ -21,12 +21,14 @@ export default function SchemeCard(props) {
           {type[props.data.type % type.length]}
         </h6>
         <p className="card-text">{props.data.description}</p>
-        <Link
-          className="btn btn-outline-success"
-          to={`/scheme/${props.data._id}`}
-        >
-          <span className="">Learn more</span>
-        </Link>
+        <div className="card-title">
+          <Link
+            className="btn btn-outline-success"
+            to={`/scheme/${props.data._id}`}
+          >
+            <span className="">Learn more</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

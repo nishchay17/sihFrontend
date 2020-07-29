@@ -3,71 +3,56 @@ import "./style/Footer.style.css";
 
 const Footer = () => {
   return (
-    <div>
-      <footer>
-        <div className="container-fluid footer bg-dark fixed-bottom ">
-          <div className="row ">
-            <div className="col" />
-            <div className="col col-sm-4">
-              <ul className=" list-inline align-content-center my-2">
-                <li className=" list-inline-item mx-2">
-                  <a href="#" className="text-white">
-                    About
-                  </a>
-                </li>
-                <li className=" list-inline-item mx-2 ">
-                  <a href="#" className="text-white">
-                    Team
-                  </a>
-                </li>
-                <li className=" list-inline-item mx-2 ">
-                  <a href="#" className="text-white">
-                    Work
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col" />
+    <div className="container-fluid mt-auto">
+      <footer className="py-1 bg-dark">
+        <div className="row">
+          <div className="col col-sm-2" />
+
+          <div className="col col-sm-4">
+            <ul className="list list-unstyled  mx-4 text-center">
+              <li className="list-item ">
+                <a href="">About</a>
+              </li>
+              <li className="list-item">
+                <a href="">Team</a>
+              </li>
+              <li className="list-item">
+                <a href="">Work</a>
+              </li>
+              <li className="list-item">
+                <a href="">Home</a>
+              </li>
+            </ul>
           </div>
-          <div className="row">
-            <div className="col" />
-            <div className="col">
-              <ul className="list-inline align-content-center  text-white">
-                <li className="list-inline-item mx-2">
-                  <i class="fa fa-facebook " aria-hidden="true" />
-                </li>
-                <li className="list-inline-item mx-2">
-                  <i class="fa fa-twitter" aria-hidden="true" />
-                </li>
-                <li className="list-inline-item mx-2">
-                  <i class="fa fa-instagram" aria-hidden="true" />
-                </li>
-              </ul>
-            </div>
-            <div className="col" />
+          <div className="col col-sm-4">
+            <ul className="list list-unstyled mx-4 text-center">
+              <li className="list-item py-1">
+                <i class="fa fa-facebook " aria-hidden="true" />
+              </li>
+              <li className="list-item py-1">
+                <i class="fa fa-twitter" aria-hidden="true" />
+              </li>
+              <li className="list-item py-1">
+                <i class="fa fa-instagram" aria-hidden="true" />
+              </li>
+            </ul>
           </div>
-          <div className="row">
-            <div className="col"> </div>
-            <div className="col">
-              <div className=" text-white mx-1">
-                <b>SMART INDIA HACKTHON 2020</b>
-              </div>
-            </div>
-            <div className="col" />
-          </div>
-          <div className="row">
-            <div className="col" />
-            <div className="col">
-              <div class="footer-copyright   text-white mx-2 py-1">
-                © 2020 copyright
-                <a href="#" className="text-white">
-                  {" "}
-                  6 bits
-                </a>
-              </div>
-            </div>
-            <div className="col" />
-          </div>
+          <div className="col" />
+        </div>
+        <div className=" container-fluid py-1 text-center">
+          <a href="https://www.sih.gov.in/" className="text-white">
+            SMART INDIA HACKTHON 2020
+          </a>
+        </div>
+
+        <div className="container-fluid text-center bg-success ">
+          <p>
+            {" "}
+            © 2020 copyright{" "}
+            <a href="" className="text-dark">
+              6 bits
+            </a>
+          </p>
         </div>
       </footer>
     </div>

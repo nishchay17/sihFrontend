@@ -11,8 +11,15 @@ const type = [
 const gender = ["Male", "Female", "Trans", "All Gender", "other"];
 
 export default function SchemeCardAdmin(props) {
+  const deleteIt = () => {
+    props.handleClick(props.data._id);
+  };
+
   return (
-    <div className="card col-md-4 m-1 col-12">
+    <div
+      className="card col-md-5 m-1 mt-md-5 col-12"
+      style={{ backgroundColor: "#bef7f7" }}
+    >
       <div className="card-body">
         <h5 className="card-title">{props.data.name}</h5>
         <h6 className="card-subtitle mb-2 text-muted">
@@ -36,7 +43,7 @@ export default function SchemeCardAdmin(props) {
         </Link>
         <button
           className="btn btn-outline-danger mx-1"
-          onClick={() => props.handleClick(props.data._id)}
+          onClick={() => deleteIt()}
         >
           Delete
         </button>

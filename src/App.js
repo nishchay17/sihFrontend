@@ -20,11 +20,14 @@ import Application from "./components/user/Application";
 import "./App.css";
 import ApplicationReview from "./components/admin/ApplicationReview";
 import ApplicationUpdate from "./components/admin/ApplicationUpdate";
+import Carousel from "./components/Carousel ";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
       <Nav />
+      {/* <Route path="/" exact component={Carousel} /> */}
       <Route path="/" exact component={HowTo} />
       <Route path="/" exact component={AllSchemes} />
       <Route path="/about" exact component={About} />
@@ -49,6 +52,7 @@ function App() {
         component={ApplySchemeSingleCard}
       />
       <ProtectedRoutes path="/application" exact component={Application} />
+      {/* <Footer /> */}
     </Router>
   );
 }

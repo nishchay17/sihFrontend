@@ -12,7 +12,7 @@ const AllSchemes = () => {
 
   return (
     <div className="text-center border-top py-3">
-      <h1 className="display-4 my-3">All Schemes</h1>
+      <h1 className="display-4 my-4">All Schemes</h1>
       <div className="container mx-auto">
         <div className="row justify-content-around">
           {dataa.length &&

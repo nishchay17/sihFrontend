@@ -61,7 +61,10 @@ export default function Scheme({ match }) {
 
   const card = () => {
     return (
-      <div className="card text-center m-4">
+      <div
+        className="card text-center m-4"
+        style={{ backgroundColor: "#bef7f7" }}
+      >
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text">{description}</p>

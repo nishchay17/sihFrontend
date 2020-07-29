@@ -5,15 +5,15 @@ import { isAuthenticated, isAdmin } from "../helper/auth";
 const SchemesAdd = () => {
   const [scheme, setScheme] = useState({
     name: "",
-    type: "",
+    type: "0",
     eligibilityIncome: "",
-    eligibilityCaste: "",
+    eligibilityCaste: "0",
     state: "0",
     eligibilityAgeUpperBound: "",
     eligibilityAgeLowerBound: "",
     description: "",
     url: "",
-    gender: "",
+    gender: "0",
     createdScheme: "",
     author: isAdmin(),
   });
@@ -54,7 +54,7 @@ const SchemesAdd = () => {
         setScheme({
           ...scheme,
           name: "",
-          type: "0",
+          type: "",
           eligibilityIncome: "",
           eligibilityCaste: "0",
           state: "0",

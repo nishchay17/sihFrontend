@@ -6,9 +6,12 @@ import {
   ChangeApplicationState,
 } from "./adminHelper/apiCalls";
 import { isAuthenticated, isAdmin } from "../helper/auth";
+import { Link } from "react-router-dom";
 
 const token = isAuthenticated();
 const id = isAdmin();
+const Genders = ["Male", "Female", "Trans", "All Gender", "other"];
+const Castes = ["Gen", "OBC", "ST/SC", "ST/SC and OBC", "All castes"];
 
 export default function ApplicationUpdate({ match }) {
   const applicationId = match.params.id;
@@ -27,8 +30,7 @@ export default function ApplicationUpdate({ match }) {
       GetSchemesById(res.schemeId).then((incomingScheme) => {
         setScheme(incomingScheme[0]);
         GetUserById(token, res.userId).then((user) => {
-          setUser(user);
-          console.log({ user, res, incomingScheme });
+          setUser(user[0]);
           setIsloading(false);
         });
       });
@@ -79,6 +81,20 @@ export default function ApplicationUpdate({ match }) {
     );
   };
 
+  const userCard = () => {
+    return (
+      <div className="card">
+        <div className="card-header">User data</div>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">Age : {user.age}</li>
+          <li className="list-group-item">Income : {user.income}</li>
+          <li className="list-group-item">Caste : {Castes[user.caste]}</li>
+          <li className="list-group-item">Gender : {Genders[user.gender]}</li>
+        </ul>
+      </div>
+    );
+  };
+
   const successMessage = () => {
     return (
       <div
@@ -91,21 +107,31 @@ export default function ApplicationUpdate({ match }) {
   };
 
   const loading = () => {
-    return <div class="spinner-border text-success"></div>;
+    return <div class="spinner-border text-success m-3"></div>;
   };
 
   return (
     <div className="text-center border-top py-3">
       <h1 className="display-4 my-3">Application Review</h1>
       <p>Review this Application</p>
-      <div className="row">
-        <div className="col-12 col-md-6">user data</div>
-        <div className="col-12 col-md-6">scheme data</div>
+      {isloading && loading()}
+      <div className="row justify-content-md-center">
+        <div className="col-12 col-md-3"> {userCard()}</div>
+        <div className="col-12 col-md-3">
+          <div className="row">
+            <div className="col-12 col-md-12">
+              <Link
+                className="btn btn-outline-success"
+                to={`/scheme/${scheme._id}`}
+              >
+                <span className="">Scheme Info, Click here</span>
+              </Link>
+            </div>
+            <div className="col-12 col-md-12">{form()}</div>
+          </div>
+        </div>
       </div>
       {successMessage()}
-      {isloading && loading()}
-      {form()}
-      <div className="container boarder-top my-3 py-2">SIH2020-6bits</div>
     </div>
   );
 }
